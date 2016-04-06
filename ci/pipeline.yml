@@ -16,5 +16,6 @@ jobs:
   plan:
   - get: flight-school
     trigger: true
+  - get: build-script-repo
   - task: tests
     file: build-script-repo/infra/ci/build.yml
