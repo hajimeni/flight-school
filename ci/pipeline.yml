@@ -15,9 +15,8 @@ resources:
 jobs:
 - name: test-app
   plan:
-  - aggregate:
-    - get: flight-school
-      trigger: true
-    - get: build-script-repo
+  - get: flight-school
+    trigger: true
+  - get: build-script-repo
   - task: tests
     file: build-script-repo/infra/ci/build.yml
