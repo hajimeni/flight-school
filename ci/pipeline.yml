@@ -7,9 +7,9 @@ resources:
 - name: build-script-repo
   type: s3
   source:
-    bucket: daemonby-app-hosting
-    regexp: infra/ci/.*
+    bucket: dmb-infra-concourse
     region_name: ap-northeast-1
+    regexp: scripts/build.yml
     access_key_id: {{s3-access-key-id}}
     secret_access_key: {{s3-secret-access-key}}
 jobs:
@@ -19,4 +19,4 @@ jobs:
     trigger: true
   - get: build-script-repo
   - task: tests
-    file: build-script-repo/infra/ci/build.yml
+    file: build-script-repo/scripts/build.yml
