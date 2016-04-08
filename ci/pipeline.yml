@@ -4,7 +4,7 @@ resources:
   source:
     uri: https://github.com/hajimeni/flight-school
     branch: master
-- name: build-script-repo
+- name: dmb-infra-concourse
   type: s3
   source:
     bucket: dmb-infra-concourse
@@ -17,6 +17,6 @@ jobs:
   plan:
   - get: flight-school
     trigger: true
-  - get: build-script-repo
+  - get: dmb-infra-concourse
   - task: tests
-    file: build-script-repo/scripts/build.yml
+    file: dmb-infra-concourse/scripts/build.yml
